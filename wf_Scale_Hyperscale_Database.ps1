@@ -1,12 +1,11 @@
-
 workflow Scale_Hyperscale_Database {
-<#   
+    <#   
 .SYNOPSIS   
     Add VCores (vertically scale) an Azure Hyperscale SQL Database    
-   
-.DESCRIPTION   
+
+    .DESCRIPTION   
     This runbook enables you to vertically scale (up or down) an Azure Hyperscale SQL Database using Azure Automation.  
-     
+
     There are many scenarios in which the performance needs of a database follow a known schedule. 
     Using the provided runbook, you can automatically schedule a database to a scale-up to 12 vCores  
     database during peak hours (e.g., 7am to 6pm) and then scale-down the database to 2 vCores during 
@@ -14,17 +13,17 @@ workflow Scale_Hyperscale_Database {
 
 .PARAMETER ResourceGroupName  
     Name of the Azure SQL Database server
-       
-.PARAMETER SqlServerName  
+
+    .PARAMETER SqlServerName  
     Name of the Azure SQL Database server  
-       
-.PARAMETER DatabaseName   
+
+    .PARAMETER DatabaseName   
     Name of the Azure SQL Database name 
 
 .PARAMETER vCore   
     The vCore number for the Azure Sql database
-  
-.NOTES   
+
+    .NOTES   
     Author: Gregg Britton   
     Last Updated: 11/11/2020      
     
@@ -54,11 +53,11 @@ workflow Scale_Hyperscale_Database {
         
         Write-Output "Logging in to Azure..."
         $az_account = Connect-AzAccount `
-                                        -ServicePrincipal `
-                                        -SubscriptionId $servicePrincipalConnection.SubscriptionId `
-                                        -TenantId $servicePrincipalConnection.TenantId `
-                                        -ApplicationId $servicePrincipalConnection.ApplicationId `
-                                        -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
+            -ServicePrincipal `
+            -SubscriptionId $servicePrincipalConnection.SubscriptionId `
+            -TenantId $servicePrincipalConnection.TenantId `
+            -ApplicationId $servicePrincipalConnection.ApplicationId `
+            -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
         Write-Output "Connected to Azure ..."
     } catch {
         if (!$servicePrincipalConnection) {
