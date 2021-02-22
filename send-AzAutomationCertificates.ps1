@@ -4,10 +4,14 @@
 	Created with: 	SAPIEN Technologies, Inc., PowerShell Studio 2020
 	Created on:   	08/10/2017
 	Modified on:    03/16/2020 (Changed to Az)
-	Created by:   	Gregg Britton
+	Created by:   	Gregg Britton (@ps_gregg)
     Filename:     	send-AzAutomationCertificates.ps1
 	===========================================================================
 #>
+
+Import-Module Az.Accounts
+Import-Module Az.Automation
+Import-Module EnhancedHTML2
 
 # Location of CSS Stylesheet for the HTML
 $stylesheet = '.\powershellstyle.css'
