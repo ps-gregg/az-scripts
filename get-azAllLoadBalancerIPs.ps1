@@ -33,5 +33,4 @@ foreach ($subscription in $subscriptions) {
     }
 }
 
-
 $allLoadBalancerIPs | sort IpAddress | Export-Csv .\azAllLoadBalancerIPs.csv -NoTypeInformation
